@@ -8,7 +8,7 @@ package salarycalculatorlab3;
 /**
  * @author Murilo Moraes
  * Date: July 15, 2020
- * Purpose: This is super class to Employee infs
+ * Purpose: This is the abstract superclass to Employee
  */
 public abstract class Employee {
     
@@ -27,7 +27,7 @@ public abstract class Employee {
         this.sin = sin;
     }
     
-    // the PDF lab guidance ask for no get methods  *************************************
+    // Getters
     public String getFirstName()
     {
         return firstName;
@@ -40,35 +40,32 @@ public abstract class Employee {
     {
         return sin;
     }
-    // *************************************** double check if needs it  *************************************
        
     
     //Setters
     public void setFirstName(String firstName)
     {
-            this.firstName = firstName;
-    }
-    
+        this.firstName = firstName;
+    }    
     public void setLastName(String lastName)
     {
-            this.lastName = lastName;
+        this.lastName = lastName;
     }
-    
     public void setSin(int sin)
     {
-            this.sin = sin;
-    }   
-    
+        this.sin = sin;
+    }      
    
-    //abstract method //no implementations
+    //abstract method no implementations
     public abstract double earnings();
     
+    
+    // representation for Employee
     @Override
     public String toString()
     {
         return (
-                "\n"+"First Name: " + getFirstName()
-                +"\n"+"Last Name: " + getLastName()
+                "\n"+"Name: " + getFirstName() + " " + getLastName()
                 +"\n"+"SIN :" + getSin()
                 );
     }
