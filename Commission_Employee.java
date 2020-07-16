@@ -8,25 +8,23 @@ package salarycalculatorlab3;
 /**
  * @author Murilo Moraes
  * Date: July 15, 2020
- * Purpose: This is a concrete class  to calculate the weekly salary for Commission Employee
+ * Purpose: This is a concrete class  to calculate the weekly salary for Commission Employee. This class extends Employee
  */
-public class Commission_Employee extends Employee
+public class CommissionEmployee extends Employee
 {   
     private double commissionRate, grossSales;
     
-    public Commission_Employee()
+    //Constructor with no argument
+    public CommissionEmployee()
     {
         
     }
-    public Commission_Employee(double commissionRate, double grossSales)
-    {
-        this.commissionRate=commissionRate;
-        this.grossSales=grossSales;
-    }
-    
-    public Commission_Employee(String firstName, String lastName, int sin)
+    //Constructor with 5 argument
+    public CommissionEmployee(String firstName, String lastName, int sin, double commissionRate, double grossSales)
     {
         super(firstName, lastName, sin);
+        this.commissionRate=commissionRate;
+        this.grossSales=grossSales;
     }
     
     //Getters
@@ -54,5 +52,14 @@ public class Commission_Employee extends Employee
     public double earnings()
     {
         return getCommissionRate() * getGrossSales();
+    }
+    
+    @Override
+    public String toString()
+    {
+        return (super.toString()
+                +"\n"+"Commission Rate: " + getCommissionRate()
+                +"\n"+"Gross Sales: " + getGrossSales()
+                );
     }
 }

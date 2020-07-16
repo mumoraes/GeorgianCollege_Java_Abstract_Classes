@@ -8,29 +8,24 @@ package salarycalculatorlab3;
 /**
  * @author Murilo Moraes
  * Date: July 15, 2020
- * Purpose: This is a concrete class to calculate the weekly salary for Hourly Employee
+ * Purpose: This is a concrete class to calculate the weekly salary for Hourly Employee. This class extends Employee
  */
 
-public class Hourly_Employee extends Employee {
+public class HourlyEmployee extends Employee {
     
     private double hourlyWage, hoursWorked;
-    private Employee employee;
     
-    public Hourly_Employee()
+    // Constructor with no argument
+    public HourlyEmployee()
     {
         
     }
-    
-    public Hourly_Employee(double hourlyWage, double hoursWorked, Employee employee)
-    {
-        this.hourlyWage = hourlyWage;
-        this.hoursWorked = hoursWorked;
-        this.employee = employee;
-    }
-    
-    public Hourly_Employee(String firstName, String lastName, int sin)
+    // Constructor with 5 argument
+    public HourlyEmployee(String firstName, String lastName, int sin, double hourlyWage, double hoursWorked)
     {
         super(firstName, lastName, sin);
+        this.hourlyWage = hourlyWage;
+        this.hoursWorked = hoursWorked;
     }
     
     //Getters
@@ -42,10 +37,6 @@ public class Hourly_Employee extends Employee {
     {
         return hoursWorked;
     }
-    public Employee getEmployee()
-    {
-        return employee;
-    }
     
     //Setters
     public void setHourlyWage(double hourlyWage)
@@ -56,18 +47,14 @@ public class Hourly_Employee extends Employee {
     {
         this.hoursWorked = hoursWorked;
     }
-    public void setEmployee(Employee employee)
-    {
-        this.employee = employee;
-    }    
+ 
     
-    //public double earnings(double hoursWorked, double hourlyWage)
     @Override
     public double earnings()
     {
        double salary; 
        
-       if(hoursWorked <=40)
+       if(getHoursWorked() <=40)
        {
            salary = getHourlyWage() * getHoursWorked();
        }
@@ -76,6 +63,15 @@ public class Hourly_Employee extends Employee {
            salary = 40 * getHourlyWage() + (getHoursWorked() - 40) * getHourlyWage() * 1.5;
        }
        return salary;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return (super.toString()
+                +"\n"+"Hourly Wage: " + getHourlyWage()
+                +"\n"+"Hours Worked: " + getHoursWorked()
+                );                
     }
     
 }

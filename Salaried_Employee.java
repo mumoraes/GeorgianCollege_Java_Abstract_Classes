@@ -8,31 +8,27 @@ package salarycalculatorlab3;
 /**
  * @author Murilo Moraes
  * Date: July 15, 2020
- * Purpose: This is a concrete class to calculate the weekly salary for Salaried Employee
+ * Purpose: This is a concrete class to calculate the weekly salary for Salaried Employee. This class extends abstract class Employee
  */
 
-public class Salaried_Employee extends Employee
+public class SalariedEmployee extends Employee
 {
     //variable
     private double weeklySalary;
    // private Employee employee;
     
-    public Salaried_Employee()
+    // Constructor with no argument
+    public SalariedEmployee()
     {
         
     }
-    
-    public Salaried_Employee(double weeklySalary)
-    {
-        this.weeklySalary = weeklySalary;
-    }
-
-    public Salaried_Employee(String firstName, String lastName, int sin, double weeklySalary)
+    // Constructor with four arguments
+    public SalariedEmployee(String firstName, String lastName, int sin, double weeklySalary)
     {
         super(firstName, lastName, sin);
         this.weeklySalary = weeklySalary;
     }
-    
+
     //Getter
     public double getWeeklySalary()
     {
@@ -42,28 +38,21 @@ public class Salaried_Employee extends Employee
     //Setter
     public void setWeeklySalary(double weeklySalary)
     {
-        this.weeklySalary=weeklySalary;
+        this.weeklySalary = weeklySalary;
     }
          
     
     @Override
     public double earnings()
     {
-        return getWeeklySalary();
+        return weeklySalary = getWeeklySalary();
     }
     
-    
-            /*
-    public double earnings(double payment)
+    @Override
+    public String toString()
     {
-       payment = this.weeklySalary(payment);
-       return payment;
+        return (super.toString()
+                +"\n"+"Weekly Salary: $" + earnings()
+                );                
     }
-            
-    // method weeklySalary ( divided / 52)
-    public double weeklySalary(double salary)
-    {
-        return salary;
-    }
-*/
 }

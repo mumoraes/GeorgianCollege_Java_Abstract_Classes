@@ -7,29 +7,26 @@ package salarycalculatorlab3;
 
 /**
  * @author Murilo Moraes
- * Date: July 15, 2020
- * Purpose: This is a concrete class  to calculate the weekly salary for Base + Commission Employee
+ Date: July 15, 2020
+ Purpose: This is a concrete class  to calculate the weekly salary for Base + Commission Employee. This class extends CommissionEmployee
  */
-public class Base_Plus_Commission_Employee extends Commission_Employee
+public class BasePlusCommissionEmployee extends CommissionEmployee
 { // represent the last employee type
         
     private double baseSalary;
     
-    public Base_Plus_Commission_Employee()
+    //Constructor with no argument
+    public BasePlusCommissionEmployee()
     {
         
     }
-    public Base_Plus_Commission_Employee(double commissionRate, double grossSales, double baseSalary)
+    //Constructor with 6 arguments
+    public BasePlusCommissionEmployee(String firstName, String lastName, int sin, double commissionRate, double grossSales, double baseSalary)
     {
-        super(commissionRate, grossSales);
+        super(firstName, lastName, sin, commissionRate, grossSales);
         this.baseSalary = baseSalary;
     }
-    
-    public Base_Plus_Commission_Employee(String firstName, String lastName, int sin)
-    {
-        super(firstName, lastName, sin);
-    }
-    
+        
     //Getter
     public double getBaseSalary()
     {
@@ -49,4 +46,11 @@ public class Base_Plus_Commission_Employee extends Commission_Employee
         return (getCommissionRate() * getGrossSales()) + getBaseSalary();
     }
     
+    @Override
+    public String toString()
+    {
+        return (super.toString()
+                +"\n"+"Base Salary: " + getBaseSalary()
+                );
+    }
 }
